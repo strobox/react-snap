@@ -91,7 +91,7 @@ const enableLogging = opt => {
 const getLinks = async opt => {
   const { page } = opt;
   const anchors = await page.evaluate(() =>
-    Array.from(document.querySelectorAll("a:not([data-skip-snap]), a:not([rel=nofollow])")).map(anchor => anchor.href)
+    Array.from(document.querySelectorAll("a:not([data-skip-snap]):not([rel=nofollow])")).map(anchor => anchor.href)
   );
 
   const iframes = await page.evaluate(() =>
